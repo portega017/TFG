@@ -1,0 +1,5 @@
+labels: ['dog', 'cat', 'panda']
+
+train: ./animal dataset/train
+test: ./animal dataset/test
+val: ./animal dataset/val

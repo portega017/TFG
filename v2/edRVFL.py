@@ -10,6 +10,7 @@ import yaml
 import time
 from CustomModels import EnsembleDeepRVFL
 from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.applications.resnet import ResNet152
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg19 import VGG19
 from keras.preprocessing import image
@@ -23,7 +24,7 @@ from sklearn.preprocessing import StandardScaler
 #import readchar
 
 # DATASET
-# https://www.kaggle.com/datasets/muhammadavici/animals-dataset?resource=download
+# https://drive.google.com/drive/folders/1iA6XY8rhdoShDi8Bi-efkCg3LFaTzX2P?usp=sharing
 
 
 def obtenerDatos(argumentos):
@@ -31,7 +32,7 @@ def obtenerDatos(argumentos):
 
     ap.add_argument("-d", "--data", required=True, help="path to input data")
     ap.add_argument("-m", "--model", required=True,
-                    help="modelo para extraer las featueres: resnet50, vgg16")
+                    help="modelo para extraer las featueres: resnet50, vgg16 vgg19, resnet152")
 
     # almacenar estos argumentos en la variable args
     args = vars(ap.parse_args())
@@ -70,6 +71,7 @@ pklVal = os.path.sep.join([dataPath,'data_val_' + nomModel + '.pkl'])
 
 # MODELS DEFINITION
 modelsDict = {'vgg16': VGG16(weights='imagenet', include_top=False), 'vgg19': VGG19(weights='imagenet', include_top=False),'resnet50': ResNet50(
+    weights='imagenet', include_top=False), 'resnet152': ResNet152(
     weights='imagenet', include_top=False), 'edrvfl': EnsembleDeepRVFL()}
 # END MODELS DEFINITION
 
@@ -151,9 +153,8 @@ def obtenerLabels(folder_path):
 def main():
     start=time.time()
     # BLOQUE TRAIN
-    # extraemos las features del dataset de entrenamiento
     
-    extract_features(pklTrain, trainDir)
+    extract_features(pklTrain, trainDir) # extraemos las features del dataset de entrenamiento
     data_up = unpickle(pklTrain)
 
     
@@ -166,8 +167,8 @@ def main():
     loaded_model = pkl.load(open(modelFile, 'rb'))
 
     # BLOQUE TEST
-    # extraemos las features del dataset de prueba
-    extract_features(pklTest, testDir)
+    
+    extract_features(pklTest, testDir) # extraemos las features del dataset de prueba
     data_test = unpickle(pklTest)
     # Para trabajar con el modelo guardado, usar loaded_model en la funcion detect
     y_pred = detect(loaded_model, data_test)

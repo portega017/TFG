@@ -1,0 +1,5 @@
+train: ../TFG/animal dataset/train/images
+val: ../TFG/animal dataset/test/images
+
+nc: 3
+names: ['cat', 'dog', 'panda']

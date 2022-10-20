@@ -128,7 +128,7 @@ def detect(model, data,test_dir):
         draw.text((0, 0), label_txt,font=myFont, fill=(255, 0, 0))
         i=i+1
         newName=img.split('images/')[1]
-        export_img='./saved/'+newName
+        export_img='../results/'+newName
         image.save(export_img)
     return y_pred
 

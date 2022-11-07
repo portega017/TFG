@@ -1,7 +1,12 @@
+primeras\ pruebas
+classification
+v2
+v4
 African\ Dataset
 saved\ data/
-v3/*.pkl
-v3/*.sav
+#classification/*.pkl
+#classification/*.sav
+classification/saved
 v2/*.pkl
 BoundingBox\ Javi/data
 BoundingBox\ Javi/images
@@ -15,3 +20,4 @@ v6/*.pkl
 codigo.zip
 TFG.code-workspace
 TFG.code-workspace\ alias
+results/

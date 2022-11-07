@@ -1,5 +1,0 @@
-labels: ['biodegradable', 'cardboard', 'glass','metal','paper','plastic']
-
-train: /home/pibol/Escritorio/new dataset/train
-test: /home/pibol/Escritorio/new dataset/test
-val: /home/pibol/Escritorio/new dataset/val

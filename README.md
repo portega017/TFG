@@ -1,2 +1,2 @@
 # TFG
-NEW ARCHITECTURES FOR DEEP NEURAL COMPUTING BASED ON RANDOMISATION FOR THE DETECTION AND CLASSIFICATION OF OBJECTS IN PICTURES
+New architectures for deep neural computing based on randomisation for detection and classification of objects in pictures
